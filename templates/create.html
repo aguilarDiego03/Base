@@ -1,0 +1,71 @@
+{%extends "base.html"%}
+{%block contenido%}
+
+
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5;">
+
+<div class="form-box" style="background: white; padding: 30px; border-radius: 8px; width: 100%; max-width: 400px;">
+    <h1 class="text-center" style="color: #1877f2;">Crea una cuenta</h1>
+    <p class="text-center">Es rápido y fácil.</p>
+
+
+    <form>
+    <div class="row mb-2">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Nombre" required>
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Apellido" required>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-4">
+        <select class="form-control" required>
+            <option>Día</option>
+        </select>
+        </div>
+        <div class="col-4">
+        <select class="form-control" required>
+            <option>Mes</option>
+        </select>
+        </div>
+        <div class="col-4">
+            <select class="form-control" required>
+            <option>Año</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="mb-2">
+        <div class="d-flex justify-content-between">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="genero" id="mujer">
+            <label class="form-check-label" for="mujer">Mujer</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="genero" id="hombre">
+            <label class="form-check-label" for="hombre">Hombre</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="genero" id="personalizado">
+            <label class="form-check-label" for="personalizado">Personalizado</label>
+        </div>
+        </div>
+    </div>
+
+    <input type="email" class="form-control mb-2" placeholder="Número de celular o correo electrónico" required>
+    <input type="password" class="form-control mb-3" placeholder="Contraseña nueva" required>
+
+    <button type="submit" class="btn btn-register w-100" style="background-color: #42b72a;">Registrarte</button>
+    </form>
+
+    <div class="text-center mt-3">
+        <a href="#">¿Ya tienes una cuenta?</a>
+    </div>
+</div>
+
+</body>
+
+
+{%endblock%}

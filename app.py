@@ -22,5 +22,15 @@ def maravillas():
 def acerca():
     return render_template('acercade.html')
 
+@app.route('/sesion')
+def sesion():
+    return render_template('sesion.html')
+
+@app.route('/cuenta')
+def create():
+    return render_template('create.html')
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
