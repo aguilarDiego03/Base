@@ -27,7 +27,7 @@ def acerca():
 @app.route('/sesion')
 def sesion():
     return render_template('sesion.html')
-
+ 
 @app.route('/create', methods=["GET", "POST"])
 def crear():
     if request.method == "POST":
