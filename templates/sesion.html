@@ -7,9 +7,10 @@
 
 
 <form>
-<input type="email" class="form-control mb-3" placeholder="Correo electrónico" required>
-<input type="password" class="form-control mb-3" placeholder="Contraseña" required>
-<button type="submit" class="btn w-100" style="background-color: #42b72a;">Entrar</button>
+    <input type="email" name="email" placeholder="Correo electrónico"
+        value="{{ email or '' }}">
+    <input type="password" name="password" placeholder="Contraseña">
+        <button type="submit">Ingresar</button>
 </form>
 
 
