@@ -1,6 +1,16 @@
 {%extends "base.html"%}
 {%block contenido%}
 
+{% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div style="color: red; margin-bottom: 10px;">
+          {% for message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
 
 <body style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5;">
 
@@ -9,61 +19,122 @@
     <p class="text-center">Es rápido y fácil.</p>
 
 
-    <form>
-    <div class="row mb-2">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Nombre" required>
-        </div>
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Apellido" required>
-        </div>
-    </div>
+    <form action="{{ url_for('crear') }}" method="POST">
 
     <div class="row mb-2">
-        <div class="col-4">
-        <select class="form-control" required>
-            <option>Día</option>
-        </select>
+        <div class="col">
+            <input type="text" name="nombre" placeholder="Nombre"
+            value="{{ nombre if nombre else '' }}"><br>
         </div>
-        <div class="col-4">
-        <select class="form-control" required>
-            <option>Mes</option>
-        </select>
-        </div>
-        <div class="col-4">
-            <select class="form-control" required>
-            <option>Año</option>
-        </select>
-        </div>
-    </div>
 
-    <div class="mb-2">
-        <div class="d-flex justify-content-between">
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="genero" id="mujer">
-            <label class="form-check-label" for="mujer">Mujer</label>
+        <div class="col">
+        <input type="text" name="apellido" placeholder="Apellido"
+            value="{{ apellido if apellido else '' }}"><br>
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="genero" id="hombre">
-            <label class="form-check-label" for="hombre">Hombre</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="genero" id="personalizado">
-            <label class="form-check-label" for="personalizado">Personalizado</label>
-        </div>
-        </div>
-    </div>
 
-    <input type="email" class="form-control mb-2" placeholder="Número de celular o correo electrónico" required>
-    <input type="password" class="form-control mb-3" placeholder="Contraseña nueva" required>
+        </div>
 
-    <button type="submit" class="btn btn-register w-100" style="background-color: #42b72a;">Registrarte</button>
+        <label>Fecha de Nacimiento:</label><br>
+        <select name="dia">
+            <option value="">Día</option>
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+            <option value="">4</option>
+            <option value="">5</option>
+            <option value="">6</option>
+            <option value="">7</option>
+            <option value="">8</option>
+            <option value="">9</option>
+            <option value="">10</option>
+            <option value="">11</option>
+            <option value="">12</option>
+            <option value="">13</option>
+            <option value="">14</option>
+            <option value="">15</option>
+            <option value="">16</option>
+            <option value="">17</option>
+            <option value="">18</option>
+            <option value="">19</option>
+            <option value="">20</option>
+            <option value="">21</option>
+            <option value="">22</option>
+            <option value="">23</option>
+            <option value="">24</option> 
+            <option value="">25</option>
+            <option value="">26</option>
+            <option value="">27</option>
+            <option value="">28</option>
+            <option value="">29</option>
+            <option value="">30</option>
+            <option value="">31</option>
+            <option value="">32</option>
+        </select>
+
+        <select name="mes">
+            <option value="">Mes</option>
+            <option value="">Enero</option>
+            <option value="">Febrero</option>
+            <option value="">Marzo</option>
+            <option value="">Abril</option>
+            <option value="">Mayo</option>
+            <option value="">Junio</option>
+            <option value="">Julio</option>
+            <option value="">Agosto</option>
+            <option value="">Septiembre</option>
+            <option value="">Octubre</option>
+            <option value="">Noviembre</option>
+            <option value="">Diciembre</option>
+        </select>
+
+        <select name="año">
+            <option value="">Año</option>
+            <option value="">1990</option>
+            <option value="">1991</option>
+            <option value="">1992</option>
+            <option value="">1993</option>
+            <option value="">1994</option>
+            <option value="">1995</option>
+            <option value="">1996</option>
+            <option value="">1997</option>
+            <option value="">1998</option>
+            <option value="">1999</option>
+            <option value="">2000</option>
+            <option value="">2001</option>
+            <option value="">2002</option>
+            <option value="">2003</option>
+            <option value="">2004</option>
+            <option value="">2005</option>
+            <option value="">2006</option>
+            <option value="">2007</option>
+            <option value="">2008</option>
+            <option value="">2009</option>
+            <option value="">2010</option>
+            <option value="">2011</option>
+            <option value="">2012</option>
+            <option value="">2013</option>
+        </select>
+        <br><br>
+
+        <label>Género:</label><br>
+        <input type="radio" name="genero" value="M"> Masculino
+        <input type="radio" name="genero" value="F"> Femenino
+        <br><br>
+
+        <input type="text" name="email" placeholder="Email"
+            value="{{ email if email else '' }}"><br>
+
+        <input type="password" name="password" placeholder="Contraseña"><br>
+        <input type="password" name="confirmar" placeholder="Confirmar Contraseña"><br>
+
+        <button type="submit">Registrarse</button>
     </form>
 
     <div class="text-center mt-3">
-        <a href="#">¿Ya tienes una cuenta?</a>
+        <a href="/sesion">¿Ya tienes una cuenta?</a>
     </div>
 </div>
+
 
 </body>
 

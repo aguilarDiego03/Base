@@ -1,26 +1,36 @@
 {%extends "base.html"%}
 {%block contenido%}
+
+
 <body style="background-color: #A6ABBF;">
     <div class="form-box" style="background: white; padding: 30px; border-radius: 8px; width: 100%; max-width: 400px;" >
-<h1 class="text-center" style="color: #1877f2;">Iniciar Sesión</h1>
-<p class="text-center">Introduce tus datos</p>
+    <h1 class="text-center" style="color: #1877f2;">Iniciar Sesión</h1>
+    <p class="text-center">Introduce tus datos</p>
+    <form action="{{ url_for('sesion') }}" method="POST">
+        <div class="form-group">
+            <label for="email"></label>
+            <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+        </div>
 
+        <div class="form-group">
+            <label for="password"></label>
+            <input type="password" id="password" name="password" placeholder="Contraseña" required>
+        </div>
 
-<form>
-<input type="email" class="form-control mb-3" placeholder="Correo electrónico" required>
-<input type="password" class="form-control mb-3" placeholder="Contraseña" required>
-<button type="submit" class="btn w-100" style="background-color: #42b72a;">Entrar</button>
-</form>
+        <button type="submit">Iniciar sesion</button>
+    </form>
 
-
-<div class="text-center mt-3">
-<a href="#">¿Olvidaste tu contraseña?</a>
+    <p>¿No tienes una cuenta? <a href="{{ url_for('crear') }}">Regístrate aquí</a></p>
 </div>
-</div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
 </body>
-
-
-
-
 
 {%endblock%}
