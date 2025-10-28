@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 import re
-
+ 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'una_clave_muy_larga_y_dificil_de_adivinar'
 
