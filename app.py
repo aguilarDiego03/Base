@@ -1,23 +1,18 @@
-<<<<<<< HEAD
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 import re
  
-=======
+
 from flask import Flask, render_template, request, redirect, url_for, flash
 import re
 
->>>>>>> 81b389df030dcfef1e9c6ba3bb7a5d30c9c277cc
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'una_clave_muy_larga_y_dificil_de_adivinar'
 
 @app.route('/')
 def index():
-<<<<<<< HEAD
     usuario_activo = session.get('usuario_activo', False)
     return render_template('base.html', usuario_activo=usuario_activo)
-=======
     return render_template('base.html')
->>>>>>> 81b389df030dcfef1e9c6ba3bb7a5d30c9c277cc
 
 @app.route('/animal')
 def animales():
@@ -83,7 +78,6 @@ def crear():
 
 @app.route('/sesion', methods=['GET', 'POST'])
 def sesion():
-<<<<<<< HEAD
     usuario_activo = session.get('usuario_activo', False)
 
     if request.method == 'POST':
@@ -116,7 +110,6 @@ def logout():
 
 if __name__ == "__main__":
     app.run(debug=True)
-=======
     return render_template('sesion.html')
  
 @app.route('/create', methods=["GET", "POST"])
@@ -159,4 +152,3 @@ def crear():
 
 if __name__ == "__main__":
     app.run(debug=True)
->>>>>>> 81b389df030dcfef1e9c6ba3bb7a5d30c9c277cc
