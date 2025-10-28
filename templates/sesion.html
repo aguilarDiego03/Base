@@ -12,6 +12,7 @@
             <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
         </div>
 
+<<<<<<< HEAD
         <div class="form-group">
             <label for="password"></label>
             <input type="password" id="password" name="password" placeholder="Contraseña" required>
@@ -19,6 +20,15 @@
 
         <button type="submit">Iniciar sesion</button>
     </form>
+=======
+ 
+<form>
+    <input type="email" name="email" placeholder="Correo electrónico"
+        value="{{ email or '' }}">
+    <input type="password" name="password" placeholder="Contraseña">
+        <button type="submit">Ingresar</button>
+</form>
+>>>>>>> 81b389df030dcfef1e9c6ba3bb7a5d30c9c277cc
 
     <p>¿No tienes una cuenta? <a href="{{ url_for('crear') }}">Regístrate aquí</a></p>
 </div>
